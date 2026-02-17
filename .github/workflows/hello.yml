@@ -1,12 +1,25 @@
-name: First Workflow
+name: System Info Workflow
 
 on:
   push:
 
 jobs:
-  say-hello:
+  system-info:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print a message
-        run: echo "Hello from GitHub Actions!"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Print system information
+        run: |
+          echo "Current Directory:"
+          pwd
+          
+          echo "----------------------"
+          echo "OS Information:"
+          uname -a
+          
+          echo "----------------------"
+          echo "Current Date:"
+          date
