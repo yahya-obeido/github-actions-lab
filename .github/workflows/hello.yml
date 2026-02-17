@@ -1,25 +1,15 @@
-name: System Info Workflow
+name: Checkout Experiment
 
 on:
   push:
 
 jobs:
-  system-info:
+  checkout-demo:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Print system information
-        run: |
-          echo "Current Directory:"
-          pwd
-          
-          echo "----------------------"
-          echo "OS Information:"
-          uname -a
-          
-          echo "----------------------"
-          echo "Current Date:"
-          date
+      - name: List files
+        run: ls -la
